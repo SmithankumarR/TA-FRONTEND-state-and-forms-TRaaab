@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>State in React</title>
+    <!-- react  -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <!-- reactDom -->
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- babel  -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- css  -->
+    <link rel="stylesheet" href="styles/App.css" />
+</head>
+
+<body>
+    <h1 className="heading">Image Matcher</h1>
+    <div id="root"></div>
+    <script type="text/babel">
+        let images = [
+            {
+                image_1: "/assets/basketball.jpg",
+                image_2: "/assets/cricket.jpg",
+                image_3: "/assets/laptop.jpg",
+                image_4: "/assets/phone.jpg",
+                image_5: "/assets/pubg.jpeg",
+                image_6: "/assets/tiger.jpg"
+
+            }
+        ]
+        class App extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    image: '',
+                };
+            }
+            handleImage = () => {
+                return this.state.image + Object.keys(images)
+            }
+            render() {
+                return (
+                    <>
+                        <center>
+                            <button className="btn btn-pri active" onClick={() => {
+                                this.handleImage
+                            }}> Basketball</button>
+                            <button className="btn btn-pri " onClick={() => {
+                                this.handleImage
+                            }}> PubG</button>
+                            <button className="btn btn-pri " onClick={() => {
+                                this.handleImage
+                            }}> Tiger</button>
+                            <button className="btn btn-pri " onClick={() => {
+                                this.handleImage
+                            }}> phone</button>
+                            <button className="btn btn-pri " onClick={() => {
+                                this.handleImage
+                            }}> Laptop</button>
+                            <button className="btn btn-pri " onClick={() => {
+                                this.handleImage
+                            }}> Cricket</button>
+                        </center>
+                    </>
+                );
+            }
+        }
+
+        ReactDOM.render(<App />, document.querySelector('root'));
+    </script>
+</body>
+
+</html>
