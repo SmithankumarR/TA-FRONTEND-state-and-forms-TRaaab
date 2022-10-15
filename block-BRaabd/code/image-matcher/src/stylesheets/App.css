@@ -1,0 +1,41 @@
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.flexibleImg{
+    max-width: 800px;
+    margin: 2rem auto;
+    display: block;
+    border-radius: 1rem;
+    border: 1px solid rgb(232, 186, 197);
+}
+.heading{
+    text-align: center;
+    font-size: 2rem;
+    color: salmon;
+}
+.btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    margin-right:  1rem;
+    margin-top: 1rem;
+    background-color: rgb(238, 54, 54);
+    color: rgb(19, 4, 8);
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 1rem;
+    border: 1px solid rgb(232, 186, 197);
+}
+.active {
+    background-color: rgb(12, 7, 7);
+    color: aliceblue;
+    display: inline-block;
+    padding: 1rem 3rem;
+    text-transform: uppercase;
+    border-radius: 1rem;
+    margin-right:  1rem;
+    margin-top: 1rem;
+    border: 0;
+}
