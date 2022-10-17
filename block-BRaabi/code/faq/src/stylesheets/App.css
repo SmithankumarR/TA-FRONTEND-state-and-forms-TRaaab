@@ -56,24 +56,25 @@ table {
   border:1px dotted mediumvioletred ;
 }
 
-.btn{
+.question ,.answer{
   padding: 1rem 2rem;
   margin: 1rem auto;
-  text-transform: uppercase;
   border:1px solid mediumvioletred ;
-  width: 160px;
-  text-align: center;
+  background-color: rgb(245, 151, 151);
+  width: 80%;
 }
-.btn-pri{
-  color: mediumvioletred;
-
-}
-.btn-sec{
-  color: rgb(253,216,140);
+.answer{
+  background-color:  rgba(161, 231, 159, 0.397) ;
 }
 .flex{
   display: flex;
 }
 .jcb{
   justify-content: space-between;
+}
+/* general */
+.heading{
+  font-size: 2rem;
+  text-align: center;
+  margin: 1rem ;
 }
