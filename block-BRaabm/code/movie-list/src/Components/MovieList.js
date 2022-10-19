@@ -1,5 +1,5 @@
 import data from "../data.json";
-import Movie from "./movie";
+import Movie from "./Movie";
 
 function MovieList() {
   return (
