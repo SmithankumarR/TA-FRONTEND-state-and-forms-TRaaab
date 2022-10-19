@@ -37,7 +37,7 @@ class Movie extends React.Component {
               return (
                 <>
                   <div className="img-container">
-                    <img className="full-width" src={item} />
+                    <img className="full-width" src={item} alt={item}/>
                   </div>
                 </>
               );
@@ -93,7 +93,7 @@ class Movie extends React.Component {
         <li>
           <article>
             <div className="poster-container">
-              <img className="full-width" src={this.props.details.Poster}></img>
+              <img className="full-width" src={this.props.details.Poster} alt={this.props.details.Title} />
             </div>
             <h2>{this.props.details.Title}</h2>
             <div className="adj flex justify-between align-center">
