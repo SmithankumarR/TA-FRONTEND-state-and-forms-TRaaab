@@ -140,7 +140,7 @@ table {
   --primary: rgb(240, 159, 145);
   --secondary: rgb(123, 233, 228) ;
   --text-light: rgb(234, 215, 196);
-  --text-dark: rgb(54, 76, 93);
+  --text-dark: rgb(14, 19, 22);
   --bg-1: rgb(255, 255, 255);
 }
 
@@ -207,6 +207,8 @@ text-transform: capitalize;
 }
 .shipping{
   border: 2px solid var(--primary);
+  max-width: 400px;
+  height:54vh;
   border-radius: 5px;
   box-shadow: 0px 4px 4px var(--text-dark);
   padding: 2rem 1rem;
@@ -214,6 +216,10 @@ text-transform: capitalize;
 .shipping h2{
   color: var(--secondary);
   font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  text-align: center;
+  margin: 0.5rem 0 1.2rem 0;
 }
 fieldset{
   margin: 0.5rem 0 1.5rem 0;
@@ -229,4 +235,13 @@ input{
   border: 1px solid var(--text-light);
   width: 100%;
   padding: 0.75rem ;
+}
+.control{
+  display: flex;
+  align-items: flex-start;
+}
+#checkbox{
+  width: 1rem;
+  margin-top: 0.3rem;
+  margin-right: 0.7rem;
 }
