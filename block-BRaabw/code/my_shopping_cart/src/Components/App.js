@@ -1,10 +1,11 @@
 import React from "react";
 import data from "../data.json";
 import Cart from "./Cart";
+import "../Stylesheets/style.css";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       sortProducts: "",
       products: [],
@@ -14,9 +15,10 @@ class App extends React.Component {
       toggle: false,
     };
   }
+
   handleSort = (size) => {
     this.setState({
-      sizes: [...this.setState.sizes, size],
+      sizes: [...this.state.sizes, size],
     });
   };
   handleSubmit = (event) => {
@@ -44,6 +46,7 @@ class App extends React.Component {
       toggle: !this.state.toggle,
     });
   };
+
   render() {
     let filteredArray = [];
     if (this.state.sizes.length >= 1) {
@@ -52,33 +55,29 @@ class App extends React.Component {
           if (product.availableSizes.includes(this.state.sizes[i])) {
             filteredArray.indexOf(product) === -1
               ? filteredArray.push(product)
-              : console.log(" ");
+              : console.log("");
           }
           return "";
         });
       }
     }
-    // filter products by product sizes
     let productsArray;
     if (filteredArray.length === 0) {
       productsArray = data.products;
     } else {
       productsArray = filteredArray;
     }
-
-    // sort products by product price
     if (this.state.sortProducts === "Highest to Lowest") {
       productsArray = productsArray.sort((a, b) => b.price - a.price);
     }
     if (this.state.sortProducts === "Lowest to Highest") {
       productsArray = productsArray.sort((a, b) => a.price - b.price);
     }
-
     return (
       <>
         <div className="container flex">
           <aside className="aside">
-            <span>Sizes :</span>
+            <span>Sizes:</span>
             <div>
               <button onClick={() => this.handleSort("X")}>X</button>
               <button onClick={() => this.handleSort("L")}>L</button>
@@ -95,41 +94,33 @@ class App extends React.Component {
               <form>
                 <select onChange={this.handleSubmit} name="sort" id="sort">
                   <option>Sort the products</option>
-                  <option value="Highest to Lowest">
-                    {" "}
-                    Price : High to Low
-                  </option>
-                  <option value="Lowest to Highest">
-                    {" "}
-                    Price : Low to High
-                  </option>
+                  <option value="Highest to Lowest">Price - High to Low</option>
+                  <option value="Lowest to Highest">Price - Low to High</option>
                 </select>
               </form>
             </header>
-            {/* each product information */}
             <section className="flex wrap">
-              {productsArray.map((eachProduct) => {
+              {productsArray.map((eachProduct) => (
                 <article key={eachProduct.id} className="product">
                   <img
                     src={`/static/products/${eachProduct.sku}_1.jpg`}
                     alt={eachProduct.title}
                   />
-                  <h2 className="title">{eachProduct.title}</h2>
-                  <hr className="hr" />
+                  <p className="title">{eachProduct.title}</p>
                   <p>{eachProduct.availableSizes}</p>
                   <div className="flex item-center justify-center price">
-                    <p>{eachProduct.availableSizes}</p>
+                    <p>{eachProduct.currencyFormat}</p>
                     <p>{eachProduct.price}</p>
                   </div>
                   <button onClick={() => this.handleAddToCart(eachProduct)}>
                     Add to the cart
                   </button>
-                </article>;
-              })}
+                </article>
+              ))}
             </section>
             <div className="cart flex">
               <div onClick={this.handleCart} className="cart-imgs">
-                <img src="/static/bag-icon.png" alt="cart-icon" />
+                <img src="/static/bag-icon.png" alt="bag-icon.png" />
               </div>
               <section className={this.state.toggle ? "display" : "none"}>
                 <div className="cart-close flex space-between">

@@ -1,37 +1,57 @@
 import React from "react";
-import Sidecart from "./Sidecart";
-
+import EachProduct from "./EachProduct";
 class Cart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      toggleCart: false,
+      deleteProduct: "",
     };
   }
+  handleCallback = (childData) => {
+    this.setState({
+      deleteProduct: childData,
+    });
+  };
+  handleCheckout = () => {
+    let data = this.props.cart;
+    var final = data.reduce((acc, cv) => {
+      acc += cv.price;
+      return acc;
+    }, 0);
+
+    alert(`Checkout - Subtotal: $ ${final}`);
+  };
+
   render() {
-    var item = this.props.element;
+    let arrayData = this.props.cart;
+    console.log(arrayData);
     return (
       <>
-        <div className="fixed w-4/12 top-0 right-0 flex">
-          {this.state.toggleCart ? (
-            <i
-              className="fas fa-times bg-black p-5 text-2xl h-16 cursor-pointer text-white"
-              onClick={this.handleDisplayCart}
-            ></i>
-          ) : (
-            <img
-              src="/static/bag-icon.png"
-              alt="cart-icon"
-              className="bg-black p-5 h-16 absolute right-0 cursor-pointer image"
-              onClick={this.handleDisplayCart}
+        <div className="scroll">
+          {arrayData.map((eachProduct) => (
+            <EachProduct
+              eachProduct={eachProduct}
+              cartTwo={this.props.cart}
+              parentCallback={this.props.mainParentCallback}
             />
-          )}
-          <div className="cart_details w-full">
-            {this.state.toggleCart ? <Sidecart side={item} /> : ""}
+          ))}
+        </div>
+        <div className="checkout">
+          <div className="flex space-between">
+            <span>SUBTOTAL </span>
+            <p>
+              $
+              {arrayData.reduce((acc, cv) => {
+                acc += cv.price;
+                return acc;
+              }, 0)}
+            </p>
           </div>
+          <button onClick={this.handleCheckout}>Checkout </button>
         </div>
       </>
     );
   }
 }
+
 export default Cart;
