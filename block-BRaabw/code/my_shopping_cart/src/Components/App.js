@@ -75,6 +75,7 @@ class App extends React.Component {
     }
     return (
       <>
+          <h2 className= "heading">Welcome to Men's Collections</h2>
         <div className="container flex">
           <aside className="aside">
             <span>Sizes:</span>
