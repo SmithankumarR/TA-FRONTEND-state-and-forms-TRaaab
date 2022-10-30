@@ -229,7 +229,7 @@ body {
 
 .product {
   width: 24%;
-  height: 56vh;
+  /* height: 56vh; */
   padding: 0.5rem 0;
   margin-left: 0.5rem;
   margin-bottom: 2rem;
